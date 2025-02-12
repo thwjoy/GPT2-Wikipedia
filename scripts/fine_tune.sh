@@ -1,0 +1,16 @@
+python fine-tune.py \
+    --dataset wiki \
+    --query_ckpt data/runs_wiki_keep/epoch\=479.ckpt \
+    --feat_ckpt data/runs_wiki_keep/epoch\=479.ckpt \
+    --query_config configs/config_512d_l8.json \
+    --feat_config configs/config_512d_l8.json \
+    --max_epochs 100 \
+    --accelerator gpu \
+    --strategy dp \
+    --enable_checkpointing True \
+    --default_root_dir data/runs_fine_tune \
+    --val_check_interval 0.1 \
+    --limit_val_batches 1 \
+    --devices 1 \
+    --batch_size 20 \
+    --max_seq_len 512

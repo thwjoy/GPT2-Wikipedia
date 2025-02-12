@@ -1,0 +1,14 @@
+python pre-train.py \
+    --limit_val_batches 100 \
+    --num_sanity_val_steps 0 \
+    --val_check_interval 0.1 \
+    --max_epochs 50 \
+    --accelerator gpu \
+    --strategy dp \
+    --enable_checkpointing True \
+    --default_root_dir data/runs \
+    --devices 4 \
+    --batch_size 400 \
+    --config configs/config_512d_l8.json \
+    --dataset ts \
+    --max_seq_len 128
